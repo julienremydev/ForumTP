@@ -1,0 +1,15 @@
+forum\Particulier.class
+servlet\Forum.class
+filters\RestrictionFilter.class
+util\NewHibernateUtil.class
+dao\AbonneDAO.class
+servlet\Index.class
+main\Main.class
+forum\Entreprise.class
+util\HibernateListener.class
+util\HibernateUtil.class
+forum\Annuaire.class
+test\TestAbonne.class
+forum\Abonne.class
+servlet\Deconnexion.class
+forum\Message.class
