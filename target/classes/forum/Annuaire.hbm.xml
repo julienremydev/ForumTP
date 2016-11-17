@@ -5,12 +5,12 @@ License Type: Academic
 -->
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="forum.Annuaire" table="Annuaire" lazy="false">
+	<class name="forum.Annuaire" table="Annuaire" >
 		<id name="nom" column="nom" type="string">
 			<generator class="assigned">
 			</generator>
 		</id>
-        <set name="topic" table="topic">
+        <set name="topic" table="topic" lazy="false">
       		<key column="nom_annuaire"/>
       		<many-to-many class="forum.Abonne" column="login"/>
     	</set>

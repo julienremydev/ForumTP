@@ -38,6 +38,6 @@
 </filter-mapping>
 
 	<listener>
-		<listener-class>util.HibernateListener</listener-class>
+		<listener-class>listeners.HibernateListener</listener-class>
 	</listener>
 </web-app>

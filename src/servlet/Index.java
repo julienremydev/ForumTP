@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +11,12 @@ import javax.servlet.http.HttpSession;
 
 
 import dao.AbonneDAO;
+import dao.AnnuaireDAO;
+import dao.MessageDAO;
 import forum.Abonne;
+import forum.Annuaire;
 import forum.Entreprise;
+import forum.Message;
 import forum.Particulier;
 import util.HibernateUtil;
 
@@ -24,7 +28,8 @@ public class Index extends HttpServlet {
 	public static final String ACCES_PUBLIC = "/WEB-INF/index.jsp";
 	public static final String ACCES_RESTREINT = "/forum";
 	public static final String SESSION_ABONNE = "sessionAbonne";
-
+	public static final String ANNUAIRE_ABOS = "Annuaire de tous les abonnés";
+	
 	private static final String CHAMP_LOGIN = "login";
 	private static final String CHAMP_MDP = "mdp";
 	private static final String CHAMP_NOM = "nom";
@@ -33,6 +38,8 @@ public class Index extends HttpServlet {
 
 	
 	private AbonneDAO abonneDAO = new AbonneDAO ();
+	private AnnuaireDAO annuaireDAO = new AnnuaireDAO ();
+	private MessageDAO messageDAO = new MessageDAO();
 	private String message ;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -98,6 +105,9 @@ public class Index extends HttpServlet {
 
 				HibernateUtil.getSessionFactory()
                 .getCurrentSession().getTransaction().commit();
+				
+				Annuaire annuaire = annuaireDAO.rechercheParNomAnnuaire(ANNUAIRE_ABOS);
+				annuaireDAO.addAbo(annuaire, abonne);
 				HttpSession session = request.getSession();
 				session.setAttribute(SESSION_ABONNE, abonne);
 				
@@ -128,6 +138,9 @@ public class Index extends HttpServlet {
 
 				HibernateUtil.getSessionFactory()
                 .getCurrentSession().getTransaction().commit();
+				
+				Annuaire annuaire = annuaireDAO.rechercheParNomAnnuaire(ANNUAIRE_ABOS);
+				annuaireDAO.addAbo(annuaire, abonne);
 				HttpSession session = request.getSession();
 				session.setAttribute(SESSION_ABONNE, abonne);
 				
@@ -170,6 +183,9 @@ public class Index extends HttpServlet {
 			/* Redirection vers la page publique */
 			this.getServletContext().getRequestDispatcher(ACCES_PUBLIC).forward(request, response);
 		} else {
+			
+			List<Message> listeMessages = messageDAO.getAllMessages();
+			request.setAttribute("listeMessages", listeMessages);
 			/* Affichage de la page restreinte */
 			this.getServletContext().getRequestDispatcher(ACCES_RESTREINT).forward(request, response);
 		}
