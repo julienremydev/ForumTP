@@ -29,6 +29,7 @@
                     <div id="chat-box-main" class="panel-body chat-box-main">
                     <c:forEach items="${listeMessages}" var="listeMessages">
                     <div class="chat-box-left">
+                    <c:out value="${listeMessages.getObjet()} " /><br>
                     <c:out value="${listeMessages.getCorps()} " />
                     </div>
                     <div class="chat-box-name-left">
@@ -40,6 +41,7 @@
                     </div>
                     <div class="chat-box-footer">
                         <div class="input-group">
+                        <input id="objet_message" type="text" class="form-control" placeholder="Objet">
                             <input id="message" type="text" class="form-control" placeholder="Enter Text Here...">
                             <span class="input-group-btn">
                                 <button id="send_message" class="btn btn-info" type="button">SEND</button>

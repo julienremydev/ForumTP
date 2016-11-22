@@ -32,25 +32,25 @@
 					<div class="top-row">
 						<div class="field-wrap">
 							<label> Login<span class="req">*</span>
-							</label> <input name="login" type="text" placeholder="Login" required
+							</label> <input name="login" type="text"  required
 								autocomplete="off">
 						</div>
 
 						<div class="field-wrap">
 							<label> Mot de passe<span class="req">*</span>
-							</label> <input name="mdp" type="password" placeholder="Mot de passe"
+							</label> <input name="mdp" type="password" 
 								required autocomplete="off">
 						</div>
 
 					</div>
 					<div class="field-wrap">
 						<label> Nom<span class="req">*</span> </label><input name="nom"
-							type="text" placeholder="Nom" required>
+							type="text"  required>
 					</div>
 
 					<div class="field-wrap">
 						<label> Prénom<span class="req">*</span></label> <input
-							name="prenom" type="text" placeholder="Prenom" required>
+							name="prenom" type="text"  required>
 					</div>
 
 
@@ -71,19 +71,19 @@
 					<div class="top-row">
 						<div class="field-wrap">
 							<label> Login<span class="req">*</span>
-							</label> <input name="login" type="text" placeholder="Login" required
+							</label> <input name="login" type="text"  required
 								autocomplete="off">
 						</div>
 
 						<div class="field-wrap">
 							<label> Mot de passe<span class="req">*</span>
-							</label> <input name="mdp" type="password" placeholder="Mot de passe"
+							</label> <input name="mdp" type="password" 
 								required autocomplete="off">
 						</div>
 
 					</div>
 					<div class="field-wrap">
-						<label> Raison Sociale<span class="req">*</span> </label><input name="raisonSociale" type="text" placeholder="Raison Sociale" required>
+						<label> Raison Sociale<span class="req">*</span> </label><input name="raisonSociale" type="text"  required>
 					</div>
 
 
@@ -105,13 +105,13 @@
 					<div class="top-row">
 						<div class="field-wrap">
 							<label> Login<span class="req">*</span>
-							</label> <input name="login" type="text" placeholder="Login" required
+							</label> <input name="login" type="text"  required
 								autocomplete="off">
 						</div>
 
 						<div class="field-wrap">
 							<label> Mot de passe<span class="req">*</span>
-							</label> <input name="mdp" type="password" placeholder="Mot de passe"
+							</label> <input name="mdp" type="password" 
 								required autocomplete="off">
 						</div>
 

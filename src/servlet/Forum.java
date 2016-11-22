@@ -25,6 +25,7 @@ public class Forum extends HttpServlet {
 	public static final String ACCES_RESTREINT = "/zoneAbonne/forum.jsp";
 	public static final String DECO = "/deco";
 	private static final String CHAMP_MSG = "send_message";
+	private static final String CHAMP_OBJET_MSG = "objet_message";
 	private MessageDAO messageDAO = new MessageDAO();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,8 +61,14 @@ public class Forum extends HttpServlet {
 		HibernateUtil.getSessionFactory()
         .getCurrentSession().beginTransaction();
 		String message = request.getParameter(CHAMP_MSG);
-		Message msg = new Message("",message);
-		msg.setAbonne((Abonne) session.getAttribute( SESSION_ABONNE ));
+		String objet_message = request.getParameter(CHAMP_OBJET_MSG);
+		
+		Message msg = new Message(objet_message,message);
+		Abonne a = (Abonne) session.getAttribute( SESSION_ABONNE );
+		msg.setAbonne(a);
+		a.getListeMessages().add(msg);
+		HibernateUtil.getSessionFactory()
+        .getCurrentSession().update(a);
 		HibernateUtil.getSessionFactory()
         .getCurrentSession().save(msg);
 		

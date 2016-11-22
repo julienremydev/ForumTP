@@ -1,5 +1,6 @@
 package forum;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Abonne {
@@ -7,6 +8,7 @@ public abstract class Abonne {
 	
 	private String login;
 	private String mdp;   
+	private Set<Message> listeMessages = new HashSet<Message>();
 	
 	public Abonne (){}
 	public Abonne(String login, String mdp){
@@ -28,5 +30,11 @@ public abstract class Abonne {
 
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
+	}
+	public Set<Message> getListeMessages() {
+		return listeMessages;
+	}
+	public void setListeMessages(Set<Message> listeMessages) {
+		this.listeMessages = listeMessages;
 	}
 }
