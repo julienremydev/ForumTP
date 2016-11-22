@@ -1,10 +1,12 @@
 package forum;
 
+import java.util.Set;
+
 public abstract class Abonne {
 
 	
 	private String login;
-	private String mdp;
+	private String mdp;   
 	
 	public Abonne (){}
 	public Abonne(String login, String mdp){

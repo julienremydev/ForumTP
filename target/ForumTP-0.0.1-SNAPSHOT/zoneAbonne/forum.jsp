@@ -6,109 +6,153 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forum</title>
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://bootsnipp.com/dist/bootsnipp.min.css?ver=7d23ff901039aef6293954d33d23c066">
 <link type="text/css" rel="stylesheet"
 	href="<c:url value="/include/style_forum.css"/>" />
 </head>
-<body>
-<div class="container">
-	    <div class="row">
-        <div class="col-md-5">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> Chat
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </button>
-                        <ul class="dropdown-menu slidedown">
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-refresh">
-                            </span>Refresh</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-ok-sign">
-                            </span>Available</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-remove">
-                            </span>Busy</a></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-time"></span>
-                                Away</a></li>
-                            <li class="divider"></li>
-                            <li><a href="http://www.jquery2dotnet.com"><span class="glyphicon glyphicon-off"></span>
-                                Sign Out</a></li>
-                        </ul>
+<body style="font-family: Verdana">
+<form id="deco" method="get" action="<c:url value="/deco"/>">
+<button class="col-lg-3 col-md-3 col-sm-3" name="deco" type="submit" >Déconnexion</button>
+</form>
+	  <div id="container" class="container">
+        <div class="row pad-top pad-bottom">
+
+
+            <div class=" col-lg-6 col-md-6 col-sm-6">
+                <div id="chat-box-div" class="chat-box-div">
+                    <div class="chat-box-head">CHAT</div>
+                    <div id="chat-box-main" class="panel-body chat-box-main">
+                    <c:forEach items="${listeMessages}" var="listeMessages">
+                    <div class="chat-box-left">
+                    <c:out value="${listeMessages.getCorps()} " />
                     </div>
-                </div>
-                <div class="panel-body">
-                    <ul class="chat">
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                        <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
-                                Send</button>
-                        </span>
+                    <div class="chat-box-name-left">
+                    ${listeMessages.getAbonne().getLogin()}
                     </div>
+                    <hr class="hr-clas" />
+                    </c:forEach>
+                        
+                    </div>
+                    <div class="chat-box-footer">
+                        <div class="input-group">
+                            <input id="message" type="text" class="form-control" placeholder="Enter Text Here...">
+                            <span class="input-group-btn">
+                                <button id="send_message" class="btn btn-info" type="button">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
+            
+            <!-- 
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="chat-box-online-div">
+                    <div class="chat-box-online-head">
+                        ONLINE USERS (120)
+                    </div>
+                    <div class="panel-body chat-box-online">
+
+                        <div class="chat-box-online-left">
+                             -  Justine Goliyad
+                            <br />
+                            ( <small>Active from 3 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+
+                        <div class="chat-box-online-right">
+                             -  Romin Royeelin
+                            <br />
+                            ( <small>Active from 10 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+                        <div class="chat-box-online-left">
+                             -  Justine Goliyad
+                            <br />
+                            ( <small>Active from 3 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+
+                        <div class="chat-box-online-right">
+                            -  Romin Royeelin
+                            <br />
+                            ( <small>Active from 10 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+                        <div class="chat-box-online-left">
+                             -  Justine Goliyad
+                            <br />
+                            ( <small>Active from 3 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+
+                        <div class="chat-box-online-right">
+                            -  Romin Royeelin
+                            <br />
+                            ( <small>Active from 10 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+                        <div class="chat-box-online-left">
+                             -  Justine Goliyad
+                            <br />
+                            ( <small>Active from 3 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+
+                        <div class="chat-box-online-right">
+                             -  Romin Royeelin
+                            <br />
+                            ( <small>Active from 10 hours</small> )
+                        </div>
+                        <hr class="hr-clas-low" />
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="chat-box-new-div">
+                    <div class="chat-box-new-head">
+                        NEW CHATS (4)
+                    </div>
+                    <div class="panel-body chat-box-new">
+
+                        (@Justine)
+                           
+                            <hr class="hr-clas-low" />
+
+
+                        (@Romin)
+                              
+                            <hr class="hr-clas-low" />
+                        (@Justine)
+                           
+                            <hr class="hr-clas-low" />
+
+(@Romin)
+                              
+                            <hr class="hr-clas-low" />
+                    </div>
+
+                </div>
+
+            </div>--> 
+            
+            
+            
+            
+            
+            
         </div>
     </div>
-</div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="<c:url value="/include/forum.js"/>"></script>
 </body>
 
 </html>

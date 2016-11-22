@@ -17,7 +17,8 @@
 	
 	<servlet-mapping>
 		<servlet-name>Index</servlet-name>
-		<url-pattern>/index</url-pattern>
+		<url-pattern></url-pattern>
+                <url-pattern>/index</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Forum</servlet-name>
@@ -38,6 +39,6 @@
 </filter-mapping>
 
 	<listener>
-		<listener-class>util.HibernateListener</listener-class>
+		<listener-class>listeners.HibernateListener</listener-class>
 	</listener>
 </web-app>
